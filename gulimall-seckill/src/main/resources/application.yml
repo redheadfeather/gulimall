@@ -1,0 +1,63 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8097
+  application:
+    name: gulimall-seckill
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    host: 192.168.124.128
+    port: 6377
+  session:
+    store-type: redis
+  rabbitmq:
+    host: 192.168.124.128
+    port: 5672
+    virtual-host: /
+    username: wertyu213
+    password: 321456
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+    publisher-confirms: true
+  zipkin:
+    base-url: 192.168.124.128:9411
+    discovery-client-enabled: false
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+server:
+  port: 8099
+  servlet:
+    session:
+      timeout: 10m
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+  level:
+    com.zl.gulimall: debug
+    org.springframework.cloud.openfeign: debug
+    org.springframework.cloud.sleuth: debug
+feign:
+  sentinel:
+    enabled: true
+

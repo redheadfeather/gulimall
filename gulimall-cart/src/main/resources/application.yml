@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: gulimall-cart
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+  redis:
+    host: 192.168.124.128
+    port: 6377
+  session:
+    store-type: redis
+
+server:
+  port: 8094
+  servlet:
+    session:
+      timeout: 10m
+logging:
+  level:
+    com.zl.gulimall: debug

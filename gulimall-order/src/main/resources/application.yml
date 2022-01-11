@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.124.128:3311/gulimall-oms
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  mvc:
+    format:
+      date: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: gulimall-order
+  redis:
+    host: 192.168.124.128
+    port: 6377
+  session:
+    store-type: redis
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+  rabbitmq:
+    host: 192.168.124.128
+    port: 5672
+    virtual-host: /
+    username: wertyu213
+    password: 321456
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+    publisher-confirms: true
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+server:
+  port: 8083
